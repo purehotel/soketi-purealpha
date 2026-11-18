@@ -1,0 +1,30 @@
+soketi-purealpha
+================
+
+This repository is a modified version of Soketi 1.6.1
+(https://github.com/soketi/soketi, tag 1.6.1,
+commit 5d188786beaf683aca2115a6247dcdc15c29ac77), licensed under the
+GNU Affero General Public License v3.0 (see LICENSE, unchanged from upstream).
+
+Modification (2026-11, Pure Alpha):
+- uWebSockets.js dependency pinned to v20.71.0
+  (commit 9ec36de7709996c58dce03d63796216c90a17136) instead of v20.10.0,
+  so the server runs on current Node.js LTS (24). Files changed: package.json,
+  package-lock.json.
+- New file src/uws-websocket.ts: type-only alias restoring the pre-20.11
+  WebSocket typing (uWebSockets.js >= 20.11 made WebSocket generic); 16 files
+  import WebSocket from it instead of 'uWebSockets.js'. No runtime code changes.
+- docker/Dockerfile: the build recipe of the container image we run
+  (Node 24, Debian trixie-slim, non-root user).
+
+uWebSockets.js is a separate project (https://github.com/uNetworking/uWebSockets.js)
+licensed under the Apache License 2.0.
+
+This modified program is used to provide the Pure Alpha real-time service.
+In accordance with section 13 of the AGPL-3.0, the complete corresponding
+source code of the version we run is published here; IMAGES.md maps every
+deployed image to the commit it was built from.
+
+Note for secret scanners: the encryptionMasterKeyBase64 values in
+tests/utils.ts are an upstream test fixture (added upstream in commit
+9bb0576, 2021), used only by the test suite. They are not a secret and are left unchanged.

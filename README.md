@@ -1,3 +1,13 @@
+> **soketi-purealpha** — a modified version of [Soketi](https://github.com/soketi/soketi) 1.6.1 (AGPL-3.0)
+> that runs on Node.js 24 LTS (uWebSockets.js v20.71.0). This is the exact source of the real-time
+> WebSocket service used by the Pure Alpha platform. Changes against upstream: see `NOTICE`
+> and the commit history; deployed images: see `IMAGES.md`.
+> Upstream project, documentation and support: https://github.com/soketi/soketi
+> Issues with upstream Soketi should be reported upstream; this fork only carries the change above.
+
+---
+
+
 # soketi
 
 <img src="assets/logo.png" width="120" />
